@@ -8,7 +8,6 @@ using dotnet_rpg.Services.CharacterService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace dotnet_rpg.Controllers
 {
     // Authorize attribute age na dile kaj kore nai swagger e
@@ -18,6 +17,7 @@ namespace dotnet_rpg.Controllers
     public class CharacterController : ControllerBase
     {
         private readonly ICharacterService _characterService;
+
         public CharacterController(ICharacterService characterService)
         {
             _characterService = characterService;
@@ -26,10 +26,9 @@ namespace dotnet_rpg.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get()
         {
-            int userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            return Ok(await _characterService.GetAllCharacter(userId));
+            return Ok(await _characterService.GetAllCharacter());
         }
-        
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> GetCharacterById(int id)
         {
@@ -37,15 +36,21 @@ namespace dotnet_rpg.Controllers
         }
 
         [HttpPost("SaveCharacter")]
-        public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto character)
+        public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(
+            AddCharacterDto character
+        )
         {
             return Ok(await _characterService.AddCharacter(character));
         }
+
         [HttpPut]
-        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> UpdateCharacter(UpdateCharacterDto updateCharacter)
+        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> UpdateCharacter(
+            UpdateCharacterDto updateCharacter
+        )
         {
             return Ok(await _characterService.UpdateCharacter(updateCharacter));
         }
+
         [HttpDelete]
         public async Task<ActionResult<List<GetCharacterDto>>> DeleteCharacter(int id)
         {
