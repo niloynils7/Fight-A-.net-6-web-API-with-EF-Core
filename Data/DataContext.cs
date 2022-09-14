@@ -14,5 +14,6 @@ namespace dotnet_rpg.Data
         }
         public DbSet<Character> Characters => Set<Character>(); // Ekhane je name deya hobe, oi name er table create hobe
         public DbSet<User>  Users => Set<User>();
+        public DbSet<Weapon> Weapons => Set<Weapon>();
     }
 }
