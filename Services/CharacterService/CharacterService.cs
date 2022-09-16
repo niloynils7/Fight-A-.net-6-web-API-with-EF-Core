@@ -93,7 +93,7 @@ namespace dotnet_rpg.Services.CharacterService
                 }
                 dbCharacter.Name = updatedCharacter.Name;
                 dbCharacter.HitPoints = updatedCharacter.HitPoints;
-                dbCharacter.Skill = updatedCharacter.Skill;
+                dbCharacter.Strength = updatedCharacter.Strength;
                 dbCharacter.Defense = updatedCharacter.Defense;
                 dbCharacter.Intelligence = updatedCharacter.Intelligence;
                 dbCharacter.Class = updatedCharacter.Class;
