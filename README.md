@@ -1,4 +1,4 @@
-# Fight a .net 6 web API with EF Core
+# Fight! A .net 6 web API with EF Core
 
 ## Description:
 A user can register for "Fight". Once registered, users can login and create their fight characters, weapon and skills. In order to achieve victories, one character can fight against other characters. Users can also see Highest Scores.
